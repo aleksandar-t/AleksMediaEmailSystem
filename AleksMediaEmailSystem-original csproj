@@ -7,29 +7,28 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.8" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
-    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="8.0.8" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
-    <PackageReference Include="RazorLight" Version="2.3.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.3" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.7.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="API\Dtos\" />
+    <Folder Include="Common\Templates\" />
+    <Folder Include="EmailWorker\Models\" />
+    <Folder Include="EmailWorker\Utils\" />
+    <Folder Include="EmailWorker\Services\" />
+    <Folder Include="EmailWorker\QueueListeners\" />
     <Folder Include="Migrations\" />
-    <Folder Include="ReactApp\src\components\forms\" />
-    <Folder Include="ReactApp\src\components\layout\" />
-    <Folder Include="ReactApp\src\hooks\" />
-    <Folder Include="ReactApp\src\context\" />
-    <Folder Include="ReactApp\src\utils\" />
+    <Folder Include="ReactApp\public\" />
+    <Folder Include="ReactApp\src\components\" />
+    <Folder Include="ReactApp\src\store\" />
+    <Folder Include="ReactApp\src\services\" />
     <Folder Include="ReactApp\src\pages\" />
   </ItemGroup>
 

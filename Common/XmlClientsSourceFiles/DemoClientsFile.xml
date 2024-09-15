@@ -1,0 +1,51 @@
+﻿<Clients>
+
+	<Client ID="3">
+
+		<Template Id="1">
+
+			<Name>HappyNewYearEmail.html</Name>
+
+			<MarketingData>{ "UserName": "UserName", "Message": "Message" }</MarketingData>
+
+		</Template>
+
+	</Client>
+
+	<Client ID="5">
+
+		<Template Id="2">
+
+			<Name>WelcomeEmail.html</Name>
+
+			<MarketingData>{ "UserName": "UserName", "Message": "Message" }</MarketingData>
+
+		</Template>
+
+	</Client>
+
+	<Client ID="6">
+
+		<Template Id="3">
+
+			<Name>HappyNewYearEmail.html</Name>
+
+			<MarketingData>{ "UserName": "UserName", "Message": "Message" }</MarketingData>
+
+		</Template>
+
+	</Client>
+
+	<Client ID="7">
+
+		<Template Id="4">
+
+			<Name>WelcomeEmail.html</Name>
+
+			<MarketingData>{ "UserName": "UserName", "Message": "Message" }</MarketingData>
+
+		</Template>
+
+	</Client>
+
+</Clients>
