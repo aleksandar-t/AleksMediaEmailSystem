@@ -42,10 +42,8 @@ namespace AleksMediaEmailSystem.EmailWorker.Services
         public void PublishEmailMessage(EmailQueueMessage emailQueueMessage)
         {
             var factory = new ConnectionFactory() { HostName = _rabbitMQConfig.HostName };
-            using (var connection = factory.CreateConnection())
-            using (var channel = connection.CreateModel())
-            {
-                channel.QueueDeclare(queue: _rabbitMQConfig.QueueName,
+         
+                _channel.QueueDeclare(queue: _rabbitMQConfig.QueueName,
                                      durable: true,
                                      exclusive: false,
                                      autoDelete: false,
@@ -54,11 +52,10 @@ namespace AleksMediaEmailSystem.EmailWorker.Services
                 var messageBody = JsonSerializer.Serialize(emailQueueMessage);
                 var body = Encoding.UTF8.GetBytes(messageBody);
 
-                channel.BasicPublish(exchange: _rabbitMQConfig.ExchangeName,
+                _channel.BasicPublish(exchange: _rabbitMQConfig.ExchangeName,
                                      routingKey: _rabbitMQConfig.RoutingKey,
                                      basicProperties: null,
-                                     body: body);
-            }
+                                     body: body);           
         }
 
         public Task SendMessageAsync(EmailMessage message)
@@ -139,10 +136,10 @@ namespace AleksMediaEmailSystem.EmailWorker.Services
             return message;
         }
 
-        //public void Dispose()
-        //{
-        //    _channel?.Dispose();
-        //    _connection?.Dispose();
-        //}
+        public void Dispose()
+        {
+            _channel?.Dispose();
+            _connection?.Dispose();
+        }
     }
 }
