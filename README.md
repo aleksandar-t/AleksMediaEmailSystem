@@ -45,15 +45,15 @@ To be implemented given more time and real life scenario:
 
 - A lot of cleaning up and refactoring of the code given more time and effort
 
-- Some suggested work on the BE siide
+- Some suggested work on the BE side:   
 Global error handling, try catchs, logging.. 
 Authorization on the API controllers to be activated  
 Data persistance of the imported campaigns from the files
 DTOS and automappers for the db models 
 Caching
 
-- Lot of work on the FE side
+- Lot of work on the FE side:
 Langing page upon Login, some menu 
 Admin management with dashboard and configurations 
-User 
+User pages
 
