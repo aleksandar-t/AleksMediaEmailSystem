@@ -12,8 +12,14 @@ const Login = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
+
+        const credentials = {
+            email,
+            password,
+        };
+
         try {
-            await login(email, password);
+            await login(credentials);
             navigate('/campaign');
         } catch (err) {
             setError(err.message);

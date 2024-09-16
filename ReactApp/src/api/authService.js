@@ -18,7 +18,7 @@ const fetchData = async (endpoint, options = {}) => {
 };
 
 export const login = async (credentials) => {
-    return fetchData('components/forms/login', {
+    return fetchData('account/login', {
         method: 'POST',
         body: JSON.stringify(credentials),
     });
