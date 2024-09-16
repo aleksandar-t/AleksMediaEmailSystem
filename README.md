@@ -39,14 +39,17 @@ A demo (SendEmailDemoAsync) where is simulates work of 2 seconds, and real email
 
 What, how and why is done: 
 
-To be discussed.
+- To be discussed.
 
 To be implemented given more time and real life scenario: 
+
+- A lot of cleaning up and refactoring of the code given more time and effort
 
 - Some suggested work on the BE siide
 Global error handling, try catchs, logging.. 
 Authorization on the API controllers to be activated  
 Data persistance of the imported campaigns from the files
+DTOS and automappers for the db models 
 Caching
 
 - Lot of work on the FE side
