@@ -41,21 +41,19 @@ namespace AleksMediaEmailSystem.EmailWorker.Services
 
         public void PublishEmailMessage(EmailQueueMessage emailQueueMessage)
         {
-            var factory = new ConnectionFactory() { HostName = _rabbitMQConfig.HostName };
-         
-                _channel.QueueDeclare(queue: _rabbitMQConfig.QueueName,
-                                     durable: true,
-                                     exclusive: false,
-                                     autoDelete: false,
-                                     arguments: null);
+            _channel.QueueDeclare(queue: _rabbitMQConfig.QueueName,
+                                 durable: true,
+                                 exclusive: false,
+                                 autoDelete: false,
+                                 arguments: null);
 
-                var messageBody = JsonSerializer.Serialize(emailQueueMessage);
-                var body = Encoding.UTF8.GetBytes(messageBody);
+            var messageBody = JsonSerializer.Serialize(emailQueueMessage);
+            var body = Encoding.UTF8.GetBytes(messageBody);
 
-                _channel.BasicPublish(exchange: _rabbitMQConfig.ExchangeName,
-                                     routingKey: _rabbitMQConfig.RoutingKey,
-                                     basicProperties: null,
-                                     body: body);           
+            _channel.BasicPublish(exchange: _rabbitMQConfig.ExchangeName,
+                                 routingKey: _rabbitMQConfig.RoutingKey,
+                                 basicProperties: null,
+                                 body: body);
         }
 
         public Task SendMessageAsync(EmailMessage message)
@@ -74,12 +72,12 @@ namespace AleksMediaEmailSystem.EmailWorker.Services
             {
                 if (message.Task.IsCompleted)
                     message = new TaskCompletionSource<EmailQueueMessage>();
-                
-                    var body = ea.Body.ToArray();
-                    var jsonMessage = Encoding.UTF8.GetString(body);
-                    var emailMessage = JsonSerializer.Deserialize<EmailQueueMessage>(jsonMessage);
-                    message.SetResult(emailMessage);
-                
+
+                var body = ea.Body.ToArray();
+                var jsonMessage = Encoding.UTF8.GetString(body);
+                var emailMessage = JsonSerializer.Deserialize<EmailQueueMessage>(jsonMessage);
+                message.SetResult(emailMessage);
+
             };
 
             _channel.BasicConsume(queue: _rabbitMQConfig.QueueName, autoAck: true, consumer: consumer);
