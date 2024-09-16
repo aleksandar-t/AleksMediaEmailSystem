@@ -7,9 +7,13 @@ The only limit for architecture, design, mocking, and implementation is to have 
 
 User Story:
 External system triggers e-mail sending.
+
 Service accepts it.
+
 Service checks for a configuration and a template.
+
 System renders e-mail.
+
 System sends e-mail.
 
 SOLUTION
@@ -19,7 +23,9 @@ Workflow:
 Upon login in react based web client, the page takes you to the campaing page where this foprm can be seen:
 ![image](https://github.com/user-attachments/assets/c8f0a30d-3fcc-41dc-8e31-380c71c63f77)
 by providing full path to the file and pressing Trigger Campaign the process is starting 
+
 Example for the XML file for mass sending is attached and used as part of the solution in ".\AleksMediaEmailSystem\Common\XmlClientsSourceFiles\DemoClientsFile.xml"
+
 Example for the html template files are attached and used as part of the solution in ".\AleksMediaEmailSystem\Common\Templates"
 
 The same can be tested with Swagger as workaround for the login part if no user created up in the database.
@@ -39,18 +45,29 @@ A demo (SendEmailDemoAsync) where is simulates work of 2 seconds, and real email
 
 What, how and why is done: 
 
-To be discussed.
+- To be discussed.
 
 To be implemented given more time and real life scenario: 
 
-- Some suggested work on the BE siide
-Global error handling, try catchs, logging.. 
+- A lot of cleaning up and refactoring of the code given more time and effort
+
+- Some suggested work on the BE side:   
+
+Global error handling, try catchs, logging..
+
 Authorization on the API controllers to be activated  
+
 Data persistance of the imported campaigns from the files
+
+DTOS and automappers for the db models 
+
 Caching
 
-- Lot of work on the FE side
-Langing page upon Login, some menu 
-Admin management with dashboard and configurations 
-User 
+- Lot of work on the FE side:
+
+Langing page upon Login, some menu
+
+Admin management with dashboard and configurations
+
+User pages
 
